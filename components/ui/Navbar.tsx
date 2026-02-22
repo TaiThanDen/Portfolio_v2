@@ -88,7 +88,7 @@ export default function Navbar() {
           </motion.div>
 
           <button
-            className="lg:hidden flex flex-col justify-center gap-1.5 p-4 rounded-full py-5 bg-white shadow-2xl "
+            className="lg:hidden flex flex-col justify-center gap-1.5 p-4 py-5 rounded-full bg-white shadow-2xl "
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >

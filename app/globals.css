@@ -145,6 +145,25 @@
   color: 8cff2e;
 }
 
+/* ── Bento scrollbar ── */
+.bento-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.bento-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.bento-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+.bento-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+.bento-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
 @layer components {
   .btn-primary {
     background-color: var(--color-btn-primary);
