@@ -8,6 +8,7 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import projects, { type Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
+import avt from "@/public/assets/avt.jpg";
 
 /* ── Tech icon color map ── */
 const techColors: Record<string, string> = {
@@ -105,6 +106,8 @@ function ProjectCarousel({ onSelect }: { onSelect: (index: number) => void }) {
 
       <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between gap-3">
         <a
+          target="_blank"
+          rel="noopener noreferrer"
           href={featuredProjects[selectedIndex]?.link ?? "#"}
           className="flex items-center gap-1.5 text-xs font-semibold text-white bg-black/60 backdrop-blur-md border border-white/15 rounded-full px-4 py-2 hover:bg-black/80 transition-colors"
         >
@@ -166,9 +169,13 @@ function ProjectInfo({ project }: { project: Project }) {
           className="flex flex-col h-full"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full bg-btn-primary/20 flex items-center justify-center text-btn-primary font-bold text-sm">
-              {project.title.charAt(0)}
-            </div>
+            <Image
+              src={avt}
+              alt={project.title}
+              width={48}
+              height={48}
+              className="w-12 h-12 rounded-lg object-cover shrink-0"
+            />
             <div>
               <h3 className="text-white font-semibold text-base leading-tight">
                 {project.title}
@@ -182,6 +189,8 @@ function ProjectInfo({ project }: { project: Project }) {
           </p>
 
           <a
+            target="_blank"
+            rel="noopener noreferrer"
             href={project.link}
             className="mt-4 flex items-center justify-between w-full rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-white text-sm font-medium hover:bg-white/10 transition-colors group"
           >
@@ -202,7 +211,7 @@ function ProjectInfo({ project }: { project: Project }) {
    ───────────────────────────────────────────── */
 function TechStackGrid({ project }: { project: Project }) {
   return (
-    <div className="h-full rounded-2xl bg-[#1a1a1a] p-5 flex flex-col overflow-y-auto">
+    <div className="h-full rounded-2xl bg-[#1a1a1a] p-5 flex flex-col overflow-y-auto bento-scrollbar">
       <span className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-4">
         Tech Stack
       </span>
@@ -304,11 +313,13 @@ function AllProjectsList() {
             <motion.a
               key={project.id}
               href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="relative rounded-xl overflow-hidden group aspect-[3/4]"
+              className="relative rounded-xl overflow-hidden group aspect-9/11"
             >
               <Image
                 src={project.image}

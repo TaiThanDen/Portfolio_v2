@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedArrowButton from "@/components/ui/AnimatedArrowButton";
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -99,12 +100,27 @@ export default function FeaturedSection({
   ctaText = "Become a client",
   ctaHref = "#",
 }: FeaturedSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Map scroll progress (0 → 1) to rotation (0° → 360°)
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+
   return (
-    <section className="relative w-full bg-[#111111] overflow-hidden py-30 px-8 md:px-20 lg:px-32">
-      {/* Decorative flower – anchored to the right, partially cropped */}
-      <div className="pointer-events-none absolute right-[-8%] top-1/2 -translate-y-1/2">
+    <section
+      ref={sectionRef}
+      className="relative w-full bg-[#111111] overflow-hidden py-30 px-8 md:px-20 lg:px-32"
+    >
+      {/* Decorative flower – anchored to the right, rotates on scroll */}
+      <motion.div
+        className="pointer-events-none absolute right-[-8%] top-1/2 -translate-y-1/2"
+        style={{ rotate }}
+      >
         <FlowerDecor color="#ffff" width={750} height={750} opacity={4} />
-      </div>
+      </motion.div>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl">
@@ -128,17 +144,17 @@ export default function FeaturedSection({
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.65, delay: 0.1, ease }}
+          transition={{ duration: 0.65, delay: 0.3, ease }}
         >
           {heading}
         </motion.h2>
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.25, ease }}
+          transition={{ duration: 0.5, delay: 0.5, ease }}
         >
           <AnimatedArrowButton
             href={ctaHref}

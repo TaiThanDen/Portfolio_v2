@@ -1,9 +1,17 @@
+import thepngocphutai from "../public/assets/projects/thepngocphutai.png";
+import gbc from "../public/assets/projects/greenblockcheck.png";
+import cineflex from "../public/assets/projects/cineflex.jpg";
+import techzone from "../public/assets/projects/techzone.png";
+import ASM_VUE from "../public/assets/projects/ASM_VUE_post.png";
+import vantaituanhai from "../public/assets/projects/vantaituanhai.png";
+import type { StaticImageData } from "next/image";
+
 export interface Project {
     id: string;
     title: string;
     subtitle: string;
     description: string;
-    image: string;
+    image: string | StaticImageData;
     techStack: string[];
     link: string;
     featured: boolean;
@@ -12,89 +20,78 @@ export interface Project {
 const projects: Project[] = [
     {
         id: "1",
-        title: "E-Commerce Platform",
-        subtitle: "Full-stack web app",
+        title: "Ngoc Phu Tai Steel Company Website",
+        subtitle: "Corporate website",
         description:
-            "A modern e-commerce platform with real-time inventory, payment integration, and an admin dashboard. Built for performance and scalability.",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
-        link: "#",
+            "A corporate website for Ngoc Phu Tai Steel Company, built to present the company's services, products, and news.",
+        image: thepngocphutai,
+        techStack: ["Vue.js", "TypeScript", "Tailwind CSS", "Go", "MySQL"],
+        link: "https://thepngocphutai.com",
         featured: true,
     },
     {
         id: "2",
-        title: "Task Management App",
-        subtitle: "Productivity tool",
+        title: "Green Block Check Company Website",
+        subtitle: "Corporate website",
         description:
-            "A drag-and-drop task board with real-time collaboration, notifications, and team analytics. Inspired by modern project management workflows.",
-        image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80",
-        techStack: ["Vue.js", "Go", "Docker", "Redis", "MongoDB"],
-        link: "#",
+            "A corporate website for Green Block Check Company, built to present the company's services, products, news, and docs",
+        image: gbc,
+        techStack: ["Next.js", "TypeScript", "Docker", "Go", "PostgreSQL"],
+        link: "https://www.greenblockcheck.software/",
         featured: true,
     },
     {
         id: "3",
-        title: "AI Chat Interface",
-        subtitle: "Machine learning project",
+        title: "CineFlex",
+        subtitle: "Movie streaming platform",
         description:
-            "An intelligent chat application powered by large language models with streaming responses, conversation memory, and custom fine-tuning.",
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-        techStack: ["React", "Python", "FastAPI", "OpenAI", "Tailwind CSS"],
-        link: "#",
+            "An online movie streaming website with a wide variety of films available for free; if you’re tired of watching ads, you can upgrade to a paid plan",
+        image: cineflex,
+        techStack: ["React", "TypeScript", "Java", "Spring Boot", "Tailwind CSS", "SQLServer"],
+        link: "https://cineflexz.netlify.app/",
         featured: true,
     },
     {
         id: "4",
-        title: "Social Media Dashboard",
-        subtitle: "Analytics platform",
+        title: "Van Tai Tuan Hai Logistics Company Website",
+        subtitle: "Corporate website",
         description:
-            "A comprehensive dashboard for tracking social media metrics across multiple platforms with beautiful charts and export capabilities.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-        techStack: ["Next.js", "D3.js", "Node.js", "GraphQL"],
-        link: "#",
-        featured: false,
+            "A corporate website for Van Tai Tuan Hai Logistics Company, Customers can book a car right on the page ",
+        image: vantaituanhai,
+        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL"],
+        link: "https://vantaituanhai.tech",
+        featured: true,
     },
     {
         id: "5",
-        title: "Weather Forecast App",
-        subtitle: "Mobile-first PWA",
+        title: "Yoso Breaking News",
+        subtitle: "News & blogging platform",
         description:
-            "A progressive web app providing hyper-local weather forecasts with interactive maps, severe weather alerts, and offline support.",
-        image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&q=80",
-        techStack: ["React", "TypeScript", "Mapbox", "Node.js"],
+            "A website that offers official news and also lets users read blog posts",
+        image: "https://github.com/TaiThanDen/Yoso-Breaking-News/blob/main/src/main/webapp/static/news/images/44b0e301-99bb-4181-8cff-4e1d2a65d2ce.png?raw=true",
+        techStack: ["Java", "SQLServer", "Bootstrap",],
         link: "#",
         featured: false,
     },
     {
         id: "6",
-        title: "Portfolio Generator",
-        subtitle: "Developer tool",
+        title: "TechZone E-commerce Website",
+        subtitle: "E-commerce platform",
         description:
-            "A CLI and web tool that generates beautiful portfolio websites from a simple JSON config. Supports multiple themes and deployment targets.",
-        image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80",
-        techStack: ["Go", "Vue.js", "Tailwind CSS", "Vercel"],
+            "Website selling technology products with fully integrated management functions",
+        image: techzone,
+        techStack: ["Java", "SQLServer", "Bootstrap"],
         link: "#",
         featured: false,
     },
     {
         id: "7",
-        title: "Fitness Tracker",
-        subtitle: "Health & wellness",
+        title: "Shilily Social Network",
+        subtitle: "Social networking platform",
         description:
-            "A cross-platform fitness application with workout tracking, nutrition logging, and AI-powered workout recommendations.",
-        image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&q=80",
-        techStack: ["React Native", "Firebase", "TensorFlow Lite"],
-        link: "#",
-        featured: false,
-    },
-    {
-        id: "8",
-        title: "Code Snippet Manager",
-        subtitle: "Developer productivity",
-        description:
-            "A VS Code extension and web app for organizing, searching, and sharing code snippets with syntax highlighting and team collaboration.",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
-        techStack: ["TypeScript", "Electron", "SQLite", "React"],
+            "A social network that allows users to create accounts to post and comment",
+        image: ASM_VUE,
+        techStack: ["TypeScript", "Vue.js", "Tailwind CSS", "Vercel"],
         link: "#",
         featured: false,
     },
