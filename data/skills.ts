@@ -22,6 +22,8 @@ import {
     SiWordpress,
     SiPython,
     SiRedis,
+    SiMysql,
+    SiSupabase,
 } from "react-icons/si";
 
 export interface Skill {
@@ -61,6 +63,8 @@ const skills: Skill[] = [
     { name: "GitHub", category: "Platform", icon: SiGithub, color: "#ffffff" },
     { name: "Figma", category: "Design", icon: SiFigma, color: "#F24E1E" },
     { name: "WordPress", category: "CMS", icon: SiWordpress, color: "#21759B" },
+    { name: "MySQL", category: "Database", icon: SiMysql, color: "#4479A1" },
+    { name: "Supabase", category: "BaaS", icon: SiSupabase, color: "#3FCF8E" },
 ];
 
 export default skills;

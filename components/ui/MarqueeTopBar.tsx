@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 
 export interface MarqueeItem {
-  /** Highlighted value shown in accent color */
-  highlight: string;
+  /** Highlighted value shown in accent color (optional) */
+  highlight?: string;
   /** Descriptive label shown next to the value */
   label: string;
 }
@@ -37,16 +37,25 @@ const Separator = () => (
 function MarqueeTrack({ items }: { items: MarqueeItem[] }) {
   return (
     <>
-      {items.map((item, i) => (
-        <span key={i} className="flex items-center shrink-0">
-          <span className="flex items-center gap-2 text-2xl xl:text-4xl font-semibold whitespace-nowrap">
-            <span className="text-btn-primary">{item.highlight}</span>
-            <span className="text-white/40">/</span>
-            <span className="text-white">{item.label}</span>
+      {items.map((item, i) => {
+        const hasHighlight =
+          typeof item.highlight === "string" && item.highlight.trim().length > 0;
+
+        return (
+          <span key={i} className="flex items-center shrink-0">
+            <span className="flex items-center gap-2 text-2xl xl:text-4xl font-semibold whitespace-nowrap">
+              {hasHighlight && (
+                <>
+                  <span className="text-btn-primary">{item.highlight}</span>
+                  <span className="text-white/40">/</span>
+                </>
+              )}
+              <span className="text-white">{item.label}</span>
+            </span>
+            <Separator />
           </span>
-          <Separator />
-        </span>
-      ))}
+        );
+      })}
     </>
   );
 }

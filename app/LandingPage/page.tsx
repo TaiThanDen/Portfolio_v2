@@ -8,12 +8,13 @@ import BentoProjectGrid from "@/components/BentoProjectGrid";
 import FeaturedSection from "@/components/FeaturedSection";
 import JourneySection from "@/components/JourneySection";
 import ToolsAndTechnologies from "@/components/ToolsAndTechnologies";
+import Testimonials from "@/components/Testimonials";
 
 const marqueeItems = [
-  { highlight: "3+", label: "years of experience" },
-  { highlight: ">95%", label: "client retention rate" },
-  { highlight: "18", label: "satisfied clients" },
-  { highlight: "14", label: "projects finished" },
+  { label: "Landing Page" },
+  { label: "E-commerce" },
+  { label: "Corporate website" },
+  { label: "CMS Website" },
 ];
 
 export default function LandingPage() {
@@ -32,13 +33,14 @@ export default function LandingPage() {
         <HeroBanner />
       </div>
       <div className="relative bg-[#1c1c1c] z-10 mt-auto ">
-        <MarqueeTopBar items={marqueeItems} />
+        <MarqueeTopBar />
       </div>
       <FeaturedSection />
       <BentoProjectGrid />
       <MarqueeTopBar items={marqueeItems} />
       <JourneySection />
       <ToolsAndTechnologies />
+      <Testimonials />
     </main>
   );
 }
