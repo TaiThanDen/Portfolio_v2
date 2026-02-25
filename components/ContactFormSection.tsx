@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { TiSocialFacebook } from "react-icons/ti";
 import { SiZalo } from "react-icons/si";
+import ContactForm from "./ContactForm";
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -49,7 +50,7 @@ export default function ContactFormSection({
   subtitle = "Let's make an impact",
   avatarSrc = "/assets/avt.jpg",
   name = "Pham Tan Tai",
-  role = "Web-designer, developer",
+  role = "Web developer",
   email = "tai25062006z@gmail.com",
   emailHref = "mailto:tai25062006z@gmail.com",
   description = "Hit me up if you're looking for a",
@@ -60,28 +61,6 @@ export default function ContactFormSection({
   formTitle = "Let's get in touch",
 }: ContactFormSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // TODO: integrate with an email service or API
-    await new Promise((r) => setTimeout(r, 1000));
-    setIsSubmitting(false);
-    setFormData({ name: "", email: "", message: "" });
-  };
 
   return (
     <section
@@ -199,45 +178,7 @@ export default function ContactFormSection({
             {formTitle}
           </h3>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4.5">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full bg-[#131212] border border-[#1d1d1d] rounded-2xl px-5 py-4 text-white placeholder:text-white/45 outline-none focus:ring-2 focus:ring-btn-primary/50 transition-shadow text-base"
-            />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full bg-[#131212] border border-[#1d1d1d] rounded-2xl px-5 py-4 text-white placeholder:text-white/45 outline-none focus:ring-2 focus:ring-btn-primary/50 transition-shadow text-base"
-            />
-
-            <textarea
-              name="message"
-              placeholder="Leave me a message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={5}
-              className="w-full bg-[#131212] border border-[#1d1d1d] rounded-2xl px-5 py-4 text-white placeholder:text-white/45 outline-none focus:ring-2 focus:ring-btn-primary/50 transition-shadow text-base resize-y min-h-36"
-            />
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full btn-primary hover:bg-btn-primary-hover text-black font-semibold py-4 rounded-full transition-colors text-base disabled:opacity-60 disabled:cursor-not-allowed mt-2"
-            >
-              {isSubmitting ? "Sending…" : "Send Message"}
-            </button>
-          </form>
+          <ContactForm />
         </motion.div>
       </div>
 

@@ -39,7 +39,8 @@ function MarqueeTrack({ items }: { items: MarqueeItem[] }) {
     <>
       {items.map((item, i) => {
         const hasHighlight =
-          typeof item.highlight === "string" && item.highlight.trim().length > 0;
+          typeof item.highlight === "string" &&
+          item.highlight.trim().length > 0;
 
         return (
           <span key={i} className="flex items-center shrink-0">

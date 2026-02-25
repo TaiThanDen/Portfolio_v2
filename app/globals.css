@@ -174,29 +174,3 @@
   }
 }
 
-/* ── Running dog animation ── */
-@keyframes dog-run {
-  0%,
-  100% {
-    transform: translateY(0) scaleY(1) scaleX(1);
-  }
-  15% {
-    transform: translateY(-6px) scaleY(1.02) scaleX(0.98);
-  }
-  30% {
-    transform: translateY(0) scaleY(0.97) scaleX(1.02);
-  }
-  50% {
-    transform: translateY(-8px) scaleY(1.03) scaleX(0.97);
-  }
-  65% {
-    transform: translateY(0) scaleY(0.97) scaleX(1.02);
-  }
-  80% {
-    transform: translateY(-4px) scaleY(1.01) scaleX(0.99);
-  }
-}
-
-.animate-dog-run {
-  animation: dog-run 0.45s ease-in-out infinite;
-}

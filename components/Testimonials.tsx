@@ -45,34 +45,34 @@ export interface TestimonialsProps {
 /* ─── Default testimonials ─── */
 const defaultTestimonials: Testimonial[] = [
   {
-    name: "Emily Desire",
+    name: "Minh Tran",
     rating: 5.0,
-    text: "Ily delivered a complex web application ahead of schedule. Her coding prowess and problem-solving abilities were evident in the seamless functionality and robust features she implemented.",
+    text: "Tai was super fast and professional. My business website was up and running in just a few days, and everything works perfectly. Highly recommended for anyone needing a reliable developer.",
   },
   {
-    name: "Tom Shawn",
-    rating: 5.0,
-    text: "Tom's redesign of our outdated website was nothing short of miraculous. He modernized our online presence while maintaining our core identity. The positive feedback from our clients has been overwhelming.",
+    name: "Huy Nguyen",
+    rating: 4.0,
+    text: "Great experience! Tai explained everything clearly and always responded quickly to my questions. The site is modern, loads fast, and is easy for me to update content myself.",
   },
   {
-    name: "Andrew Mathews",
+    name: "Anna Le",
     rating: 4.5,
-    text: "Andrew transformed my business idea into a stunning website in just two weeks, and I couldn't be happier! His attention to detail and quick turnaround time were impressive.",
+    text: "I needed a custom booking system for my spa. Tai delivered exactly what I wanted, fixed bugs quickly, and even helped me with hosting setup. Will hire again for future projects.",
   },
   {
-    name: "Sarah Taller",
+    name: "Quang Pham",
     rating: 5.0,
-    text: "Attention to detail is evident in the responsive layouts, ensuring seamless performance across all devices.",
+    text: "Very good service. Tai migrated my old WordPress site to a new React app with no downtime. He also optimized SEO and gave me clear documentation.",
   },
   {
-    name: "Michael Chen",
+    name: "Linh Hoang",
     rating: 5.0,
-    text: "Pleasure working with a developer who truly understands modern web standards. The final product exceeded all expectations and our conversion rate increased by 40%.",
+    text: "I appreciate Tai's attention to detail and clean code. He added all the features I requested and made sure the site looks great on both phone and desktop.",
   },
   {
-    name: "Lisa Nguyen",
+    name: "David Vu",
     rating: 4.5,
-    text: "The website redesign was completed on time and on budget. Communication throughout the project was excellent, with regular updates and quick responses to feedback.",
+    text: "Tai is easy to work with and always delivers on time. He even supported me after launch when I needed small changes. Great freelance developer!",
   },
 ];
 
