@@ -25,6 +25,8 @@ import {
     SiMysql,
     SiSupabase,
 } from "react-icons/si";
+import { DiMsqlServer } from "react-icons/di";
+
 
 export interface Skill {
     name: string;
@@ -57,6 +59,7 @@ const skills: Skill[] = [
     { name: "Firebase", category: "BaaS", icon: SiFirebase, color: "#FFCA28" },
     { name: "Docker", category: "DevOps", icon: SiDocker, color: "#2496ED" },
     { name: "Vercel", category: "Platform", icon: SiVercel, color: "#ffffff" },
+    { name: "SQL Server", category: "Database", icon: DiMsqlServer, color: "#CC2927" },
 
     // ─── Tools ───
     { name: "Git", category: "VCS", icon: SiGit, color: "#F05032" },

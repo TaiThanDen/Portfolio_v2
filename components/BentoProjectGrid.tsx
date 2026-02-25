@@ -6,6 +6,35 @@ import Autoplay from "embla-carousel-autoplay";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiVuedotjs,
+  SiTypescript,
+  SiJavascript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiGo,
+  SiDocker,
+  SiPostgresql,
+  SiMongodb,
+  SiFirebase,
+  SiPython,
+  SiRedis,
+  SiMysql,
+  SiGraphql,
+  SiElectron,
+  SiSqlite,
+  SiBootstrap,
+  SiVercel,
+  SiSpring,
+  SiPrisma,
+  SiD3Dotjs,
+  SiMapbox,
+  SiTensorflow,
+} from "react-icons/si";
+import { FaJava } from "react-icons/fa";
+import { type IconType } from "react-icons";
 import projects, { type Project } from "@/data/projects";
 import { cn } from "@/lib/utils";
 import avt from "@/public/assets/avt.jpg";
@@ -37,6 +66,42 @@ const techColors: Record<string, string> = {
   "TensorFlow Lite": "bg-orange-500/15 text-orange-300",
   Electron: "bg-sky-600/15 text-sky-300",
   SQLite: "bg-blue-400/15 text-blue-300",
+  Java: "bg-red-500/15 text-red-400",
+  "Spring Boot": "bg-green-500/15 text-green-400",
+  SQLServer: "bg-gray-500/15 text-gray-300",
+  Bootstrap: "bg-purple-500/15 text-purple-400",
+};
+
+/* ── Tech icon map ── */
+const techIcons: Record<string, IconType> = {
+  "Next.js": SiNextdotjs,
+  React: SiReact,
+  "React Native": SiReact,
+  "Vue.js": SiVuedotjs,
+  TypeScript: SiTypescript,
+  JavaScript: SiJavascript,
+  "Tailwind CSS": SiTailwindcss,
+  "Node.js": SiNodedotjs,
+  Node: SiNodedotjs,
+  Go: SiGo,
+  Docker: SiDocker,
+  PostgreSQL: SiPostgresql,
+  MongoDB: SiMongodb,
+  Firebase: SiFirebase,
+  Python: SiPython,
+  Redis: SiRedis,
+  MySQL: SiMysql,
+  GraphQL: SiGraphql,
+  Electron: SiElectron,
+  SQLite: SiSqlite,
+  Bootstrap: SiBootstrap,
+  Vercel: SiVercel,
+  "Spring Boot": SiSpring,
+  Prisma: SiPrisma,
+  "D3.js": SiD3Dotjs,
+  Mapbox: SiMapbox,
+  "TensorFlow Lite": SiTensorflow,
+  Java: FaJava,
 };
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -225,21 +290,28 @@ function TechStackGrid({ project }: { project: Project }) {
           transition={{ duration: 0.3 }}
           className="flex flex-col gap-2 flex-1"
         >
-          {project.techStack.map((tech, i) => (
-            <motion.div
-              key={tech}
-              initial={{ opacity: 0, x: 10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: i * 0.06 }}
-              className={cn(
-                "flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-sm font-medium border border-white/5",
-                techColors[tech] ?? "bg-white/10 text-white/80",
-              )}
-            >
-              <span className="w-2 h-2 rounded-full bg-current opacity-60" />
-              {tech}
-            </motion.div>
-          ))}
+          {project.techStack.map((tech, i) => {
+            const Icon = techIcons[tech];
+            return (
+              <motion.div
+                key={tech}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className={cn(
+                  "flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-sm font-medium border border-white/5",
+                  techColors[tech] ?? "bg-white/10 text-white/80",
+                )}
+              >
+                {Icon ? (
+                  <Icon size={15} className="shrink-0 opacity-80" />
+                ) : (
+                  <span className="w-2 h-2 rounded-full bg-current opacity-60 shrink-0" />
+                )}
+                {tech}
+              </motion.div>
+            );
+          })}
         </motion.div>
       </AnimatePresence>
     </div>

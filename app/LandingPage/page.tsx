@@ -9,6 +9,8 @@ import FeaturedSection from "@/components/FeaturedSection";
 import JourneySection from "@/components/JourneySection";
 import ToolsAndTechnologies from "@/components/ToolsAndTechnologies";
 import Testimonials from "@/components/Testimonials";
+import ContactSection from "@/components/SocicalSection";
+import ContactFormSection from "@/components/ContactFormSection";
 
 const marqueeItems = [
   { label: "Landing Page" },
@@ -37,10 +39,13 @@ export default function LandingPage() {
       </div>
       <FeaturedSection />
       <BentoProjectGrid />
-      <MarqueeTopBar items={marqueeItems} />
       <JourneySection />
       <ToolsAndTechnologies />
       <Testimonials />
+      <MarqueeTopBar items={marqueeItems} />
+      <ContactSection />
+      <MarqueeTopBar />
+      <ContactFormSection />
     </main>
   );
 }
