@@ -28,7 +28,7 @@ export default function LandingPage() {
 
       <div className="relative z-10 flex flex-col min-h-screen">
         <div className="w-full border-b border-gray-300">
-          <div className="w-full container mx-auto px-12">
+          <div className="w-full px-0 lg:container lg:mx-auto lg:px-12">
             <Navbar />
           </div>
         </div>

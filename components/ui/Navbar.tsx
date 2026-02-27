@@ -13,7 +13,7 @@ export default function Navbar() {
     <>
       <div className="relative z-20 w-full">
         <motion.header
-          className={`w-full flex items-center justify-between px-6 lg:px-12 py-4 lg:py-5 `}
+          className={`w-full flex items-center justify-between px-6 lg:px-12 py-4 lg:py-5 transition-colors ${mobileOpen ? "bg-white" : "bg-transparent"} lg:bg-transparent`}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease }}
@@ -72,7 +72,7 @@ export default function Navbar() {
           </motion.div>
 
           <button
-            className="lg:hidden flex flex-col justify-center gap-1.5 p-4 py-5 rounded-full bg-white shadow-2xl "
+            className="lg:hidden flex flex-col justify-center gap-1.5 p-4 py-5 rounded-full bg-white "
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
