@@ -44,10 +44,20 @@ export default function HeroBanner({
   avatarSrc = "/assets/avt.jpg",
   sinceYear = "2021 – PRESENT",
   description = "I'm dedicated to crafting websites that bring your ideas to life, combining design and development to deliver fast, impactful results.",
-  ctaText = "See what I can do",
-  ctaHref = "#",
+  ctaText = "See featured projects",
+  ctaHref = "#featured-projects",
   socialLinks = defaultSocialLinks,
 }: HeroBannerProps) {
+  const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (ctaHref.startsWith("#")) {
+      e.preventDefault();
+      const target = document.querySelector(ctaHref);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+  };
+
   return (
     <div className="flex flex-col xl:flex-row flex-1">
       {/* ── Sidebar ── */}
@@ -229,7 +239,9 @@ export default function HeroBanner({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 3.2, ease: "easeOut" }}
         >
-          <AnimatedArrowButton href={ctaHref}>{ctaText}</AnimatedArrowButton>
+          <AnimatedArrowButton href={ctaHref} onClick={handleCtaClick}>
+            {ctaText}
+          </AnimatedArrowButton>
         </motion.div>
       </div>
     </div>

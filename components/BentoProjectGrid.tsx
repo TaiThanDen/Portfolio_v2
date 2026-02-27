@@ -150,7 +150,7 @@ function ProjectCarousel({ onSelect }: { onSelect: (index: number) => void }) {
 
       <div className="overflow-hidden h-full" ref={emblaRef}>
         <div className="flex h-full">
-          {featuredProjects.map((project) => (
+          {featuredProjects.map((project, i) => (
             <div
               key={project.id}
               className="flex-[0_0_100%] min-w-0 relative h-full"
@@ -161,6 +161,7 @@ function ProjectCarousel({ onSelect }: { onSelect: (index: number) => void }) {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                priority={i === 0}
               />
             </div>
           ))}

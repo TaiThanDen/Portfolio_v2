@@ -97,8 +97,8 @@ interface FeaturedSectionProps {
 export default function FeaturedSection({
   sectionLabel = "{01} — Featured projects",
   heading = "I blend creativity with\ntechnical expertise",
-  ctaText = "Become a client",
-  ctaHref = "#",
+  ctaText = "Chat on Zalo",
+  ctaHref = "https://zalo.me/0961967006",
 }: FeaturedSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -109,8 +109,11 @@ export default function FeaturedSection({
   // Map scroll progress (0 → 1) to rotation (0° → 360°)
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
+
+
   return (
     <section
+      id="featured-projects"
       ref={sectionRef}
       className="relative w-full bg-[#111111] overflow-hidden py-30 px-8 md:px-20 lg:px-32"
     >

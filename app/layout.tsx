@@ -4,45 +4,10 @@ import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
 const manrope = localFont({
-  src: [
-    {
-      path: "../public/fonts/Manrope/static/Manrope-ExtraLight.ttf",
-      weight: "200",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Manrope/static/Manrope-Light.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Manrope/static/Manrope-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Manrope/static/Manrope-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Manrope/static/Manrope-SemiBold.ttf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Manrope/static/Manrope-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/Manrope/static/Manrope-ExtraBold.ttf",
-      weight: "800",
-      style: "normal",
-    },
-  ],
+  src: "../public/fonts/Manrope/Manrope-VariableFont_wght.ttf",
   variable: "--font-manrope",
   display: "swap",
+  weight: "200 800",
 });
 
 export const metadata: Metadata = {

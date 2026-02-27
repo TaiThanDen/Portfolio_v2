@@ -9,7 +9,7 @@ export type ButtonSize = "sm" | "md" | "lg";
 interface AnimatedArrowButtonProps {
   href?: string;
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   /** Visual style of the button. Default: "primary" */
   variant?: ButtonVariant;
   /** Size preset. Default: "md" */

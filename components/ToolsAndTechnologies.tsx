@@ -387,8 +387,12 @@ export default function ToolsAndTechnologies({
 
   /* ── RAF loop ── */
   const tick = useCallback(() => {
-    updateCards();
-    rafRef.current = requestAnimationFrame(tick);
+    const loop = () => {
+      updateCards();
+      rafRef.current = requestAnimationFrame(loop);
+    };
+
+    loop();
   }, [updateCards]);
 
   /* ── Desktop mouse handlers ── */

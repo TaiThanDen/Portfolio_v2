@@ -1,15 +1,25 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import GLOBE from "vanta/dist/vanta.globe.min";
-import * as THREE from "three";
 
 export default function VantaBackground() {
   const vantaRef = useRef<HTMLDivElement | null>(null);
-  const vantaEffect = useRef<ReturnType<typeof GLOBE> | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const vantaEffect = useRef<any>(null);
 
   useEffect(() => {
-    if (!vantaEffect.current && vantaRef.current) {
+    let cancelled = false;
+
+    async function initVanta() {
+      if (vantaEffect.current || !vantaRef.current) return;
+
+      const [{ default: GLOBE }, THREE] = await Promise.all([
+        import("vanta/dist/vanta.globe.min"),
+        import("three"),
+      ]);
+
+      if (cancelled || !vantaRef.current) return;
+
       vantaEffect.current = GLOBE({
         el: vantaRef.current,
         THREE,
@@ -27,6 +37,8 @@ export default function VantaBackground() {
       });
     }
 
+    initVanta();
+
     // Resize handler
     const handleResize = () => {
       if (vantaEffect.current) {
@@ -36,6 +48,7 @@ export default function VantaBackground() {
     window.addEventListener("resize", handleResize);
 
     return () => {
+      cancelled = true;
       window.removeEventListener("resize", handleResize);
       if (vantaEffect.current) {
         vantaEffect.current.destroy();

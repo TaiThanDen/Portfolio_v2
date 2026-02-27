@@ -1,16 +1,24 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import VantaBackground from "@/components/background/Vanta";
 import Navbar from "@/components/ui/Navbar";
-import MarqueeTopBar from "@/components/ui/MarqueeTopBar";
 import HeroBanner from "@/components/HeroBanner";
-import BentoProjectGrid from "@/components/BentoProjectGrid";
-import FeaturedSection from "@/components/FeaturedSection";
-import JourneySection from "@/components/JourneySection";
-import ToolsAndTechnologies from "@/components/ToolsAndTechnologies";
-import Testimonials from "@/components/Testimonials";
-import ContactSection from "@/components/SocicalSection";
-import ContactFormSection from "@/components/ContactFormSection";
+
+const MarqueeTopBar = dynamic(() => import("@/components/ui/MarqueeTopBar"));
+const FeaturedSection = dynamic(() => import("@/components/FeaturedSection"));
+const BentoProjectGrid = dynamic(
+  () => import("@/components/BentoProjectGrid")
+);
+const JourneySection = dynamic(() => import("@/components/JourneySection"));
+const ToolsAndTechnologies = dynamic(
+  () => import("@/components/ToolsAndTechnologies")
+);
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const ContactSection = dynamic(() => import("@/components/SocicalSection"));
+const ContactFormSection = dynamic(
+  () => import("@/components/ContactFormSection")
+);
 
 const marqueeItems = [
   { label: "Landing Page" },
