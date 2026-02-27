@@ -7,7 +7,6 @@ import {
     SiJavascript,
     SiTailwindcss,
     SiNodedotjs,
-    SiGo,
     SiDocker,
     SiPostgresql,
     SiMongodb,
@@ -20,8 +19,6 @@ import {
     SiCss3,
     SiVite,
     SiWordpress,
-    SiPython,
-    SiRedis,
     SiMysql,
     SiSupabase,
 } from "react-icons/si";
@@ -47,17 +44,14 @@ const skills: Skill[] = [
     // ─── Languages ───
     { name: "TypeScript", category: "Language", icon: SiTypescript, color: "#3178C6" },
     { name: "JavaScript", category: "Language", icon: SiJavascript, color: "#F7DF1E" },
-    { name: "Python", category: "Language", icon: SiPython, color: "#3776AB" },
-    { name: "Go", category: "Language", icon: SiGo, color: "#00ADD8" },
     { name: "HTML", category: "Markup", icon: SiHtml5, color: "#E34F26" },
     { name: "CSS", category: "Style", icon: SiCss3, color: "#1572B6" },
 
     // ─── Databases & Infra ───
     { name: "PostgreSQL", category: "Database", icon: SiPostgresql, color: "#4169E1" },
-    { name: "MongoDB", category: "Database", icon: SiMongodb, color: "#47A248" },
-    { name: "Redis", category: "Database", icon: SiRedis, color: "#DC382D" },
+    // { name: "MongoDB", category: "Database", icon: SiMongodb, color: "#47A248" },
     { name: "Firebase", category: "BaaS", icon: SiFirebase, color: "#FFCA28" },
-    { name: "Docker", category: "DevOps", icon: SiDocker, color: "#2496ED" },
+    // { name: "Docker", category: "DevOps", icon: SiDocker, color: "#2496ED" },
     { name: "Vercel", category: "Platform", icon: SiVercel, color: "#ffffff" },
     { name: "SQL Server", category: "Database", icon: DiMsqlServer, color: "#CC2927" },
 

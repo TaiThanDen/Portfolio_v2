@@ -19,8 +19,6 @@ import {
   SiPostgresql,
   SiMongodb,
   SiFirebase,
-  SiPython,
-  SiRedis,
   SiMysql,
   SiGraphql,
   SiElectron,
@@ -33,6 +31,7 @@ import {
   SiMapbox,
   SiTensorflow,
 } from "react-icons/si";
+import { DiMsqlServer } from "react-icons/di";
 import { FaJava } from "react-icons/fa";
 import { type IconType } from "react-icons";
 import projects, { type Project } from "@/data/projects";
@@ -88,8 +87,6 @@ const techIcons: Record<string, IconType> = {
   PostgreSQL: SiPostgresql,
   MongoDB: SiMongodb,
   Firebase: SiFirebase,
-  Python: SiPython,
-  Redis: SiRedis,
   MySQL: SiMysql,
   GraphQL: SiGraphql,
   Electron: SiElectron,
@@ -102,6 +99,7 @@ const techIcons: Record<string, IconType> = {
   Mapbox: SiMapbox,
   "TensorFlow Lite": SiTensorflow,
   Java: FaJava,
+  SQLServer: DiMsqlServer,
 };
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -448,7 +446,10 @@ export default function BentoProjectGrid() {
         </div>
 
         {/* ── Right: Scrollable column ── */}
-        <div className="lg:w-1/2 lg:h-full lg:overflow-y-auto bento-scrollbar flex flex-col gap-3">
+        <div
+          data-lenis-prevent
+          className="lg:w-1/2 lg:h-full min-h-0 lg:overflow-y-auto overscroll-contain bento-scrollbar flex flex-col gap-3"
+        >
           {/* Top row: Project Info + Tech Stack */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 shrink-0">
             <div className="h-60 lg:h-72">

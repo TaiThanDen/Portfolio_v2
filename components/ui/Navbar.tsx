@@ -20,23 +20,7 @@ export default function Navbar() {
         >
           {/* ── Logo ── */}
           <Link href="/" className="flex items-center gap-2 group">
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="shrink-0"
-            >
-              <rect width="22" height="22" rx="4" fill="#8cff2e" />
-              <path
-                d="M5 5L17 17M17 5L5 17"
-                stroke="#1a1a1a"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
-            <span className="font-bold text-lg tracking-tight text-gray-900 group-hover:opacity-80 transition-opacity">
+            <span className="font-medium text-2xl tracking-tight text-gray-900 group-hover:opacity-80 transition-opacity">
               My Profile
             </span>
           </Link>

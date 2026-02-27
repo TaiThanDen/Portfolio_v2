@@ -54,7 +54,7 @@ export default function ContactFormSection({
   email = "tai25062006z@gmail.com",
   emailHref = "mailto:tai25062006z@gmail.com",
   description = "Hit me up if you're looking for a",
-  descriptionBold = "fast, reliable web-designer",
+  descriptionBold = "fast, reliable web-developer",
   ctaText = "Book a call",
   ctaHref = "#",
   socialLinks = defaultSocialLinks,

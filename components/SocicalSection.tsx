@@ -271,7 +271,7 @@ export default function Contact({
     >
       {/* Decorative geometric flower – anchored to the left, rotates on scroll */}
       <motion.div
-        className="pointer-events-none absolute right-[-10%] top-1/2 -translate-y-1/2"
+        className="pointer-events-none absolute right-[-10%] top-1/2 -translate-y-1/2 hidden md:block"
         style={{ rotate }}
       >
         <GeometricFlowerDecor

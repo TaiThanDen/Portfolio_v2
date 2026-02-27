@@ -397,11 +397,20 @@ export default function ToolsAndTechnologies({
     mouseRef.current = { x: e.clientX, y: e.clientY };
   }, []);
 
-  const handleMouseEnter = useCallback(() => {
-    if (isMobileRef.current) return;
-    isInsideRef.current = true;
-    rafRef.current = requestAnimationFrame(tick);
-  }, [tick]);
+  const handleMouseEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (isMobileRef.current) return;
+
+      // Có ánh sáng ngay cả khi chuột đang đứng yên
+      if (!mouseRef.current) {
+        mouseRef.current = { x: e.clientX, y: e.clientY };
+      }
+
+      isInsideRef.current = true;
+      rafRef.current = requestAnimationFrame(tick);
+    },
+    [tick],
+  );
 
   const handleMouseLeave = useCallback(() => {
     if (isMobileRef.current) return;
@@ -467,6 +476,17 @@ export default function ToolsAndTechnologies({
       cancelAnimationFrame(mobileRaf);
     };
   }, [updateCards]);
+
+  /* Lưu vị trí chuột toàn cục (last known position) */
+  useEffect(() => {
+    const onPointerMove = (e: PointerEvent) => {
+      if (isMobileRef.current) return;
+      mouseRef.current = { x: e.clientX, y: e.clientY };
+    };
+
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onPointerMove);
+  }, []);
 
   /* ── Cleanup ── */
   useEffect(() => {

@@ -164,6 +164,33 @@
   scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
 
+html,
+body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 120, 120, 0.45) transparent;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 120, 0.45);
+  border-radius: 9999px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 120, 0.7);
+}
+
 @layer components {
   .btn-primary {
     background-color: var(--color-btn-primary);
@@ -172,5 +199,12 @@
   .btn-primary:hover {
     background-color: var(--color-btn-primary-hover);
   }
+}
+
+/* Hide browser scrollbar (global) but keep scroll behavior */
+html,
+body {
+  -ms-overflow-style: none; /* IE/Edge cũ */
+  scrollbar-width: none; /* Firefox */
 }
 
