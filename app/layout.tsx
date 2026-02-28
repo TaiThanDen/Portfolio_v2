@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import ToastProvider from "@/components/providers/ToastProvider";
 
 const manrope = localFont({
   src: "../public/fonts/Manrope/Manrope-VariableFont_wght.ttf",
@@ -23,7 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.variable} antialiased`}>
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <SmoothScrollProvider>
+          {children}
+          <ToastProvider />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
